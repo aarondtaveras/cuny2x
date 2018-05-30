@@ -1,0 +1,41 @@
+.container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+div {
+	color: red;
+	font-size: 25px;
+	margin-top: 10px;
+	border: solid black 2px;
+	background: lightblue;
+	font-family: "Arial"
+	
+}
+
+table, th, td {
+	border: 1px solid black;
+}
+
+p {
+	font-family: "Arial"
+	color: blue;
+	font-size: 20px;
+	background: lightblue;
+}
+
+ul{
+	list-style-type: square;
+}
+
+a:link, a:visited {
+	background-color: aquamarine;
+	color: white;
+	padding: 14 px 20 px;
+	display: inline-block;
+}
+
+a:hover, a:active {
+	background-color: yellow;
+}
