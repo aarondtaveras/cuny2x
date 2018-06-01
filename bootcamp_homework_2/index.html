@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Page set-up -->	
+	<meta charset="utf-8">
+	<meta name="viewport"content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+<!-- Body begins --> 
+	<body>
+	<div class="navigation">
+    <ul class="nav nav-pills mb-3" id="pills-tab">
+      <li class="nav-item">
+        <a class="nav-link" id="pills-home-tab" href="index.html" aria-selected="false">Arguing Buttons</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pills-profile-tab" href="hover.html" aria-selected="false">Hovering</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" id="pills-contact-tab" href="sphere.html" aria-selected="true">Volume of Sphere</a>
+      </li>
+    </ul>
+    </div>
+    <header class="header"> Welcome to Aaron's assignment #3!</header>
+<!-- First part of assignment --> 
+	<div>
+		<button type="button">Click me!</button>
+		<button type="button">No, click me!</button>
+<!-- All of our scripts will be contained in "script.js"-->
+	</div>
+
+	</body>
+<script>
+	document 
+
+    var buttons = document.getElementsByTagName('button');
+
+	buttons[0].addEventListener("click", function(event) {
+	    buttons[0].innerHTML = "I'm right!";
+	})
+
+	buttons[1].addEventListener("click", function(event) {
+	    buttons[1].innerHTML = "No, I'm right!";
+	})
+ </script>
+</head>
+
+</html>
