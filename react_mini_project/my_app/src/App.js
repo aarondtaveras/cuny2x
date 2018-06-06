@@ -1,7 +1,6 @@
 // Need these imports every time! 
 
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -10,7 +9,9 @@ class App extends Component {
     super();
     this.state = {
       name: "",
-      nameArray: []
+      nameArray: [],
+      done: false , 
+      starred : false
     };
   }
 
@@ -24,10 +25,10 @@ class App extends Component {
   handleSubmit(event){
     event.preventDefault();
     const name = this.state.name; 
-    let updateListOfNames = this.state.nameArray;
-    updateListOfNames.push(name);
+    let updatedListOfNames = this.state.nameArray;
+    updatedListOfNames.push(name);
     this.setState({
-      nameArray : updateListOfNames
+      nameArray : updatedListOfNames
     })
     console.log("current state of array: ", this.state.nameArray);
 
@@ -35,12 +36,31 @@ class App extends Component {
 
   handleDelete(event){
     event.preventDefault();
-    let updateListOfNames = this.state.nameArray;
-    updateListOfNames.pop();
+    let updatedListOfNames = this.state.nameArray;
+    updatedListOfNames.pop();
     this.setState({
-      nameArray : updateListOfNames
+      nameArray : updatedListOfNames
     })
     console.log("current state of array: ", this.state.nameArray);
+  }
+
+  handleStarred(event){
+    event.preventDefault();
+    let isDone = true;
+    this.setState({
+      starred : isDone
+    })
+    console.log("current task: ", this.state.name, "is now starred." );
+  }
+
+  removeItem(i, event){
+    console.log("i is ", i);
+    event.preventDefault();
+    let updatedListOfNames = this.state.nameArray;
+    updatedListOfNames.filter((item,i,array)=> item!== array[i]);
+    this.setState({
+      nameArray : updatedListOfNames
+    })
   }
 
   render() {
@@ -48,12 +68,14 @@ class App extends Component {
     // You can have multiple divs, but there must be a PARENT tag
 
     const listOfNames = this.state.nameArray;
-    const name = listOfNames.map((name,i)=>(<li key = {i}>name</li>)); 
-
+    const name = listOfNames.map((name,i)=>(<li key = {i}><i onClick={this.handleStarred.bind(this)}className="material-icons"
+    >star</i>{name}<i onClick={this.removeItem.bind(this)}className="material-icons">times</i></li>)); 
 
     return (
       <div className="App">
-    
+        <header className="App-header">
+          Welcome to the To-Do List: Powered by React.
+        </header>
         <p className="App-intro">
           Welcome to the to-do list app! Submit tasks below. 
         </p>
@@ -66,7 +88,7 @@ class App extends Component {
               <button onClick={this.handleDelete.bind(this)} type="delete" value="Delete" />
           </form>
           <ul>
-            { name ? name : null}
+            { (name) ? name : null}
             </ul>
       </div>
     );
