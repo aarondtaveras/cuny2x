@@ -27,10 +27,20 @@ class App extends Component {
     let updateListOfNames = this.state.nameArray;
     updateListOfNames.push(name);
     this.setState({
-      listOfNames: updateListOfNames
+      nameArray : updateListOfNames
     })
     console.log("current state of array: ", this.state.nameArray);
 
+  }
+
+  handleDelete(event){
+    event.preventDefault();
+    let updateListOfNames = this.state.nameArray;
+    updateListOfNames.pop();
+    this.setState({
+      nameArray : updateListOfNames
+    })
+    console.log("current state of array: ", this.state.nameArray);
   }
 
   render() {
@@ -43,12 +53,9 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
+    
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          Welcome to the to-do list app! Submit tasks below. 
         </p>
           <form onSubmit={this.handleSubmit.bind(this)}>
             <label>
@@ -56,6 +63,7 @@ class App extends Component {
               <input onChange={this.handleChange.bind(this)} type="text" name="name" />
               </label>
               <input type="submit" value="Submit" />
+              <button onClick={this.handleDelete.bind(this)} type="delete" value="Delete" />
           </form>
           <ul>
             { name ? name : null}
