@@ -28,9 +28,7 @@ var data = {
 };   
 
 app.get('/',function(req,res){
-    res.render('views/index',{
-       
-    });
+    res.render('index.ejs');
 });
 
 
