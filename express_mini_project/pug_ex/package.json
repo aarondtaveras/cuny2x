@@ -1,0 +1,27 @@
+{
+  "name": "pug_ex",
+  "version": "1.0.0",
+  "description": "Express mini project using pug templating ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/aarondtaveras/cuny2x"
+  },
+  "keywords": [
+    "express",
+    "javascript",
+    "pug",
+    "templating",
+    "node",
+    "npm"
+  ],
+  "author": "AaronTaveras",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "pug": "^2.0.3"
+  }
+}
