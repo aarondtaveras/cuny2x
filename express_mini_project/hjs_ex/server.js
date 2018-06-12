@@ -1,8 +1,8 @@
 var express = require('express');
-var ejs = require('ejs');
+var ejs = require('handlebars');
 var app = express();
 
-app.set('view engine','hjs');
+app.set('view engine','handlebars');
 
 var data = {
     groceries: [{
@@ -23,7 +23,7 @@ var data = {
     };
 
 app.get('/',function(req,res){
-    res.render('views/list',{
+    res.render('list',{
         grocery_store1:data.groceries[0],
         grocery_store2:data.groceries[1]
     });

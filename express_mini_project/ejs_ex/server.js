@@ -23,7 +23,7 @@ var data = {
     };
 
 app.get('/',function(req,res){
-    res.render('views/list',{
+    res.render('list.ejs',{
         grocery_store1:data.groceries[0],
         grocery_store2:data.groceries[1]
     });

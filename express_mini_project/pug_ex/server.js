@@ -1,5 +1,5 @@
 var express = require('express');
-var ejs = require('ejs');
+var ejs = require('pug');
 var app = express();
 
 app.set('view engine','pug');
@@ -23,7 +23,7 @@ var data = {
     };
 
 app.get('/',function(req,res){
-    res.render('views/list',{
+    res.render('index.pug',{
         grocery_store1:data.groceries[0],
         grocery_store2:data.groceries[1]
     });
