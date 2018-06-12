@@ -5,11 +5,13 @@
 </head>
 
 <body>
-    <div>
-        <!-- loop over posts and render them here --> 
+    <div class="list-group">
+        <% data.forEach((item) => { %>
+            <a href="/post/<%= item.id %>" class="list-group-item">
+              <h1 class="list-group-item-heading"><%= item.company %></h1>
+          <% }) %>
     </div>
 
 </body>
-    <p1>This is a test</p1>
     
 </html>

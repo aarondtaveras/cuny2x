@@ -14,21 +14,41 @@ var app = express();
 
 app.set('view engine','pug');
 
-var data = {
-    e3: [{
-        company: 'E3 Releases by Company',
-        list: [
-            'Sony',
-            'Nintendo',
-            'Ubisoft',
-            'SquareEnix'
-        ]
-        }
-    ]
-};   
-
+var data = [
+    {
+        id:1,
+        company: 'Sony',
+        body: 'Sony released new gameplay for Spider-Man open world.'
+    },
+    {
+        id:2,
+        company: 'Nintendo',
+        body: 'New smash bros gameplay for switch'
+    },
+    {
+        id:3,
+        company: 'Ubisoft',
+        body: 'Ubisoft is pretty trash so yeah lol'
+    },
+    {
+        id:4,
+        company: 'SquareEnix',
+        body: 'Kingdom hearts 3 has a release date but we all know that means nothing'
+    }
+]
 app.get('/',function(req,res){
-    res.render('index.ejs');
+    res.render('index.ejs', {data : data});
+});
+
+app.get('/post/:id',function(req,res){
+    var item = data.filter((item)=>{
+        return item.id == req.params.id
+    })
+
+    res.render('item',{
+        company: item.company,
+        body: item.body
+    })
 });
 
 
