@@ -12,9 +12,14 @@ var cors = require('cors');
 app.use(cors());
 
 var ejs = require('ejs');
-
-app.use(express.static('public'));
 app.set('view engine','ejs');
+app.get('/',function(req,res){
+    res.render('index.ejs');
+})
+
+
+app.use(express.json());
+app.use(express.urlencoded({extended : true}));
 
 // Database will be useraccounts.json 
 
@@ -40,41 +45,25 @@ function listen(){
     console.log("Listening at " + host + ":" + port);
 }
 
-app.get('/add/:user/:password',addUserAccount);
+app.get('/add',function(req,res){
+    res.render('index');
+    var username = req.query.username;
+    var password = req.query.password;
+    console.log(username,password);
 
-function addUserAccount(req,res){
-    var userName = req.params.user;
-    var password = req.params.password;
-
-    // Store it
-    useraccounts[userName] = password;
-    // Let request know it's completed 
+    useraccounts[username] = password;
 
     var reply = {
-        status: 'success',
-        userName: userName,
+        status:'success',
+        username: username,
         password: password
     }
     console.log('adding: ' + JSON.stringify(reply));
 
-    //write a file each time we get a new word 
-
     var json = JSON.stringify(useraccounts,null,2);
     fs.appendFile('useraccounts.json',json,'utf8',finished);
-
     function finished(err){
         console.log('Finished writing data to json.');
-        res.send(reply);
     }
 
-    app.get('/',function(req,res){
-        res.render('index.ejs');
-    })
-
-    app.get('/all', showData);
-
-    function showData(req,res){
-        res.send(useraccounts);
-    }
-
-}
+})
