@@ -1,0 +1,25 @@
+{
+  "name": "list_app",
+  "version": "1.0.0",
+  "description": "List app that renders more info on user click to front end",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/aarondtaveras/cuny2x"
+  },
+  "keywords": [
+    "express",
+    "javascript",
+    "routing",
+    "pug"
+  ],
+  "author": "AaronTaveras",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "pug": "^2.0.3"
+  }
+}
