@@ -1,20 +1,20 @@
 //using express 
-
 var express = require('express');
 
 //create the app 
-
 var app = express();
 
 // require file system (fs)
 var fs = require('fs');
 
 // cross origin resources 
-
 var cors = require('cors');
 app.use(cors());
 
+var ejs = require('ejs');
+
 app.use(express.static('public'));
+app.set('view engine','ejs');
 
 // Database will be useraccounts.json 
 
@@ -66,6 +66,10 @@ function addUserAccount(req,res){
         console.log('Finished writing data to json.');
         res.send(reply);
     }
+
+    app.get('/',function(req,res){
+        res.render('index.ejs');
+    })
 
     app.get('/all', showData);
 
