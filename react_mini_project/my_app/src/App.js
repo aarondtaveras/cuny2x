@@ -46,11 +46,11 @@ class App extends Component {
 
   handleStarred(event){
     event.preventDefault();
-    let isDone = true;
+    let isStarred = !this.state.starred;
     this.setState({
-      starred : isDone
+      starred : isStarred
     })
-    console.log("current task: ", this.state.name, "is now starred." );
+    
   }
 
   removeItem(i, event){
@@ -63,6 +63,7 @@ class App extends Component {
     })
   }
 
+
   render() {
     // When returning a component, you need to return a single div tag
     // You can have multiple divs, but there must be a PARENT tag
@@ -70,6 +71,8 @@ class App extends Component {
     const listOfNames = this.state.nameArray;
     const name = listOfNames.map((name,i)=>(<li key = {i}><i onClick={this.handleStarred.bind(this)}className="material-icons"
     >star</i>{name}<i onClick={this.removeItem.bind(this)}className="material-icons">times</i></li>)); 
+
+    
 
     return (
       <div className="App">
@@ -81,7 +84,7 @@ class App extends Component {
         </p>
           <form onSubmit={this.handleSubmit.bind(this)}>
             <label>
-              Name:
+              Task:
               <input onChange={this.handleChange.bind(this)} type="text" name="name" />
               </label>
               <input type="submit" value="Submit" />
