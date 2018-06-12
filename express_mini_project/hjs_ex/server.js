@@ -2,7 +2,7 @@ var express = require('express');
 var ejs = require('ejs');
 var app = express();
 
-app.set('view engine','ejs');
+app.set('view engine','hjs');
 
 var data = {
     groceries: [{
