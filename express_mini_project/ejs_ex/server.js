@@ -38,7 +38,7 @@ app.get('/who{1,}a{1,}', function (req, res) {
   }); 
 
 app.get('/:name/:lastname', function(req,res){
-    res.send(`the name is ${req.params.lastname}, ${req.params.name} ${req.params.lastname}`);
+    res.send(`First and last name: ${req.params.lastname}, ${req.params.name} ${req.params.lastname}`);
   });
 
 app.get('/:word', function(req,res){
