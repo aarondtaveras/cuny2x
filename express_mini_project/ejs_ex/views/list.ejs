@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<h1><%= grocery_store1.store %></h1>
+<ul>
+    <% grocery_store1.list.forEach(function(item) { %>
+        <li><%= item %></li>
+    <% }); %>
+</ul>
+<h1><%= grocery_store2.store %></h1>
+<ul>
+    <% grocery_store2.list.forEach(function(item) { %>
+        <li><%= item %></li>
+    <% }); %>
+</ul>
+
+<html>
