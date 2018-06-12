@@ -43,9 +43,9 @@ app.get('/',function(req,res){
 app.get('/post/:id',function(req,res){
     var item = data.filter((item)=>{
         return item.id == req.params.id
-    })
+    })[0]
 
-    res.render('item',{
+    res.render('item.ejs',{
         company: item.company,
         body: item.body
     })
