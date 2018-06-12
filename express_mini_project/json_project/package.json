@@ -1,0 +1,26 @@
+{
+  "name": "json_project",
+  "version": "1.0.0",
+  "description": "Mini project to read and write to .json files using Express.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/aarondtaveras/cuny2x"
+  },
+  "keywords": [
+    "express",
+    "json",
+    "database",
+    "server",
+    "backend",
+    "javascript"
+  ],
+  "author": "AaronTaveras",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
