@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Test</title>
+        <link rel="stylesheet" type="text/css" href ="/public/style.css">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+      </head>
+      <body>
+        <div class="container">
+          <fieldset>
+              <!-- Forms need an action and method for things to happen : action = 
+                where to take it to, methods = get,post,put,delete. Foundations
+                of a RESTful API/server
+                Get - retrieves address : /addresses/1
+                Post - creates new entity, and can update an existing one
+                Put - can create and update : is idempotent (unchanged when operated on by itself)
+                Delete - remove a resource - can be asynchronous -->
+            <form action="/" method="post">
+              <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
+              <input type="submit" class="ghost-button" value="Get Weather">
+            </form>
+          </fieldset>
+          <% if(weather!== null) { %>
+            <p><%= weather %> </p> 
+            <!-- You use = when the code will add html -->
+          <% } %>
+
+          <% if(error!== null) { %>
+            <p> <%= error %> </p>
+          <% } %>
+
+        </div>
+      </body>
+</head>
+
+</html>
